@@ -1,0 +1,102 @@
+package procesaJson;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import javax.swing.JTable;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+public class procesaJSON {
+
+	
+	public static ArrayList<String> columnas = new ArrayList<String>();
+	public static HashMap datos = new HashMap<String,String>();	
+	
+	public static String[] column = null;
+	public static Object[][] data = new Object[1][10];
+	
+
+	public static void recorreJSON(String ruta){
+		
+		JSONParser parser = new JSONParser();
+		
+		
+		try {
+			
+			Object obj = parser.parse(new FileReader("C:\\Users\\fjcrujera\\Downloads\\Prueba técnica Nexodo Digital\\products.json"));			
+			//Object obj = parser.parse(new FileReader("C:\\Users\\fjcrujera\\Downloads\\Prueba técnica Nexodo Digital\\otro.json"));
+			//Object obj = parser.parse(new FileReader(ruta));
+					
+			if(obj.getClass().getName().equals("org.json.simple.JSONArray")){
+
+			//Si el tipo de JSON es un ARRAY
+			JSONArray jsonArray = (JSONArray) obj;
+			
+			int nCol = 0;
+			int key = 0;
+			for(int i = 0; i<jsonArray.size();i++) {
+				JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+																
+				for(Object o:jsonObject.entrySet()){			
+									
+				//Obtenemos las columnas
+				String col = o.toString().split("=")[0]; 
+				
+				//Añadimos las columnas solo en la primera iteracion
+				if(!columnas.contains(col)){
+				columnas.add(col);
+				}	
+				
+				//Obtenemos el valor
+				String val = o.toString().split("=")[1]; 
+				
+				datos.put(key, val);
+				key++;
+				}				
+				
+			}
+			int c = 0;
+			String colum = "|";
+			String dat = "|";
+			for(Object e: procesaJSON.datos.keySet()){
+				colum+=columnas.get(c)+"|";
+				dat+=procesaJSON.datos.get(e)+"|";
+				if(c==5){
+					c=0;
+					dat+="\n";
+				}else{c++;}
+			}	
+			System.out.println(colum);
+			System.out.println(dat);
+			//Si el tipo de JSON no es un ARRAY
+			}else{
+				JSONObject jsonObject = (JSONObject) obj;
+				for(Object o:jsonObject.entrySet()){
+					System.out.println(o);
+				}
+			}
+				
+		}catch (ClassCastException e){
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
+	
+

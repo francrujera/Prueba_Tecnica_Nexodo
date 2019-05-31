@@ -1,0 +1,110 @@
+[
+	{
+		"active": "1",
+		"id": "318348",
+		"color": "azul",
+		"name": "Agua",
+		"costprice": "0.00000",
+		"price1": "1.50000",
+		"price2": "1.50000",
+		"price3": "1.50000",
+		"price4": "1.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318355",
+		"color": "gris",
+		"name": "Refresco",
+		"costprice": "0.50000",
+		"price1": "3.00000",
+		"price2": "3.00000",
+		"price3": "3.00000",
+		"price4": "3.00000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318359",
+		"color": "naranja",
+		"name": "Zumos",
+		"costprice": "0.00000",
+		"price1": "2.00000",
+		"price2": "2.50000",
+		"price3": "2.50000",
+		"price4": "2.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "0",
+		"id": "318353",
+		"color": "morado",
+		"name": "Copas Vino",
+		"costprice": "0.00000",
+		"price1": "2.50000",
+		"price2": "2.50000",
+		"price3": "2.50000",
+		"price4": "2.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318357",
+		"color": "rojo",
+		"name": "Tintos",
+		"costprice": "0.00000",
+		"price1": "2.50000",
+		"price2": "2.50000",
+		"price3": "2.50000",
+		"price4": "2.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318351",
+		"color": "negro",
+		"name": "Café",
+		"costprice": "0.20000",
+		"price1": "1.50000",
+		"price2": "1.50000",
+		"price3": "1.50000",
+		"price4": "1.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318352",
+		"color": "azul",
+		"name": "Café Descafeinado",
+		"costprice": "0.00000",
+		"price1": "1.50000",
+		"price2": "1.50000",
+		"price3": "1.50000",
+		"price4": "1.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "1",
+		"id": "318354",
+		"color": "blanco",
+		"name": "Infusiones",
+		"costprice": "0.00000",
+		"price1": "1.50000",
+		"price2": "1.50000",
+		"price3": "1.50000",
+		"price4": "1.50000",
+		"price5": "0.00000"
+	},
+	{
+		"active": "0",
+		"id": "318350",
+		"color": "verde",
+		"name": "Batidos",
+		"costprice": "0.00000",
+		"price1": "0.00000",
+		"price2": "0.00000",
+		"price3": "0.00000",
+		"price4": "0.00000",
+		"price5": "0.00000"
+	}
+]

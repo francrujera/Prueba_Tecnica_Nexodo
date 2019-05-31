@@ -1,0 +1,106 @@
+package procesaJson;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.table.TableModel;
+
+import java.awt.event.ActionListener;
+
+	public class Ventana extends JFrame{
+
+		private JPanel contentPane;
+	    private JTextField textField;
+	    private JTextArea textArea;
+	 
+	    /**
+	     * Launch the application.
+	     */
+	    public static void main(String[] args) {
+	        EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+	                	Ventana frame = new Ventana();
+	                    frame.setVisible(true);	                    
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
+	 
+	    /**
+	     * Create the frame.
+	     */
+	    public Ventana() {
+	 
+	        //Parametros asociados a la ventana
+	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        setBounds(100, 100, 800, 600);
+	        contentPane = new JPanel();
+	        contentPane.setLayout(null);
+	        setContentPane(contentPane);	 
+ 
+	        JButton btnSeleccionar = new JButton("Pulse para seleccionar el archivo JSON");
+	        btnSeleccionar.setBounds(200, 25, 300, 23);
+	        contentPane.add(btnSeleccionar);
+	            
+	        /*
+	        textArea = new JTextArea();
+	        textArea.setLineWrap(true);
+	        textArea.setWrapStyleWord(true);
+	        textArea.setBounds(52, 76, 360, 156);
+	 		*/
+	        	 
+	        btnSeleccionar.addActionListener(new ActionListener(){
+	            public void actionPerformed (ActionEvent e){
+	            	//Creamos el objeto JFileChooser
+	            	JFileChooser fc=new JFileChooser();
+	            	 
+	            	//Abrimos la ventana, guardamos la opcion seleccionada por el usuario
+	            	int seleccion=fc.showOpenDialog(contentPane);
+	            	 
+	            	//Si el usuario, pincha en aceptar
+	            	if(seleccion==JFileChooser.APPROVE_OPTION){
+	            	 
+	            	    //Seleccionamos el fichero
+	            	    File fichero=fc.getSelectedFile();
+	            	 
+	            	    procesaJSON.recorreJSON(fichero.getAbsolutePath());
+	            	    
+	            	    
+	        		    //String[] columnNames = {"Nombre", "Apellido", "Pasatiempo"}; 
+	        	        //Object[][] data = {{"Mary","Campione","Esquiar"},{"Lhucas","Huml","Patinar"},{"Kathya","Walrath","Escalar"},{"Angela", "Lalth","Nadar"}};  
+	                            	             
+	        	        
+	        	        //JTable table = new JTable(data, columnNames); 
+	        	        JTable table = new JTable(procesaJSON.data, procesaJSON.column); 
+
+	                    
+	        	        table.setBounds(20, 76, 300, 550);
+	            	    
+	        	        JScrollPane scroll=new JScrollPane(table);
+	        	        scroll.setBounds(20, 76, 550, 300);
+	        	        contentPane.add(scroll);
+	            	    
+	            	    /*Ecribe la ruta del fichero seleccionado en el campo de texto
+	            	    textField.setText(fichero.getAbsolutePath());
+	            	 
+	            	    try(FileReader fr=new FileReader(fichero)){
+	            	        String cadena="";
+	            	        int valor=fr.read();
+	            	        while(valor!=-1){
+	            	            cadena=cadena+(char)valor;
+	            	            valor=fr.read();
+	            	        }
+	            	        textArea.setText(cadena);
+	            	    } catch (IOException e1) {
+	            	        e1.printStackTrace();
+	            	    }*/
+	            	}
+	            }
+	        });
+	 
+	    }}

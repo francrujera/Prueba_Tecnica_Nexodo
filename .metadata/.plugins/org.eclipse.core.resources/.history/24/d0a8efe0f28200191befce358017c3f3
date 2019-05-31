@@ -1,0 +1,14 @@
+package procesaJson;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		procesaJSON.recorreJSON("");
+		
+		for(Object e: procesaJSON.datos.keySet()){
+			System.out.println("Columna: "+e+"--> Valor:"+procesaJSON.datos.get(e));
+		}
+	}
+
+}

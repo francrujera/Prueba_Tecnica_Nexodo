@@ -1,0 +1,16 @@
+package muestraResultado;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class tablaProducto {
+
+	public void devuelveTabla(){
+
+	    String[] columnNames = {"Nombre", "Apellido", "Pasatiempo", "Años de Practica", "Soltero(a)"}; 
+        Object[][] data = {{"Mary","Campione","Esquiar", new Integer(5), new Boolean(false)},{"Lhucas","Huml","Patinar", new Integer(3), new Boolean(true)},{"Kathya","Walrath","Escalar", new Integer(2), new Boolean(false)},{"Marcus", "Andrews",  "Correr",  new Integer(7), new Boolean(true)},{"Angela", "Lalth","Nadar",new Integer(4), new Boolean(false)}};  
+
+        JTable table = new JTable(data, columnNames); 
+	}
+	
+}
